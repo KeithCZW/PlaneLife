@@ -1,7 +1,2 @@
-<<<<<<< HEAD
 m_EditorVersion: 2020.3.7f1
 m_EditorVersionWithRevision: 2020.3.7f1 (dd97f2c94397)
-=======
-m_EditorVersion: 2020.3.8f1
-m_EditorVersionWithRevision: 2020.3.8f1 (507919d4fff5)
->>>>>>> 8d5cc957943a1ea6ad4fac56ac820ee5cd6d0668
