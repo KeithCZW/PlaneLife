@@ -28,7 +28,15 @@ public class EnemyBehavior : MonoBehaviour
     public MOVEMENT_BEHAVIOR behavior = MOVEMENT_BEHAVIOR.LINEAR;
     public float curveRadius = 2.0f;
     public float curveSpeed = 5.0f;
-    public bool curveHorizontal = true;
+    public enum CURVE_DIRECTION
+    {
+        UP,
+        DOWN,
+        LEFT,
+        RIGHT
+    }
+
+    public CURVE_DIRECTION curveDirection = CURVE_DIRECTION.UP;
 
     // Start is called before the first frame update
     void Start()
@@ -69,14 +77,21 @@ public class EnemyBehavior : MonoBehaviour
     private void SineMovement()
     {
         fTimer += Time.deltaTime * curveSpeed;
-        Vector3 sin;
-        if (curveHorizontal)
+        Vector3 sin = new Vector3(0,0,0);
+        switch (curveDirection)
         {
-            sin = new Vector3(Mathf.Sin(fTimer) * curveRadius, 0, 0);
-        }
-        else
-        {
-            sin = new Vector3(0, Mathf.Sin(fTimer) * curveRadius, 0);
+            case CURVE_DIRECTION.UP:
+                sin = new Vector3(0, Mathf.Sin(fTimer) * curveRadius, 0);
+                break;
+            case CURVE_DIRECTION.DOWN:
+                sin = new Vector3(0, -Mathf.Sin(fTimer) * curveRadius, 0);
+                break;
+            case CURVE_DIRECTION.LEFT:
+                sin = new Vector3(-Mathf.Sin(fTimer) * curveRadius, 0, 0);
+                break;
+            case CURVE_DIRECTION.RIGHT:
+                sin = new Vector3(Mathf.Sin(fTimer) * curveRadius, 0, 0);
+                break;
         }
         
         transform.position += (planeDirection + sin) * planeSpeed * Time.deltaTime;
