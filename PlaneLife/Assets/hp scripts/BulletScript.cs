@@ -26,7 +26,12 @@ public class BulletScript : MonoBehaviour
     {
         if (other.tag != "Player" && other.tag != "Bullet") {
             Debug.Log(other.name);
-            Destroy(gameObject);
+            Unit unit = other.transform.GetComponent<Unit>();
+            if (unit != null && other.transform.GetComponent<EnemyBehavior>() != null)
+            {
+                unit.health -= 1;
+                Destroy(gameObject);
+            }
         }
     }
 }

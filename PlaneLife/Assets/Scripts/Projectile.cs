@@ -10,6 +10,8 @@ public class Projectile : MonoBehaviour
 
     private float despawnTime = 5.0f;
 
+    public bool isPlayer = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,12 +26,23 @@ public class Projectile : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        print("TEST");
+        //print("TEST");
         Unit unit = collision.transform.GetComponent<Unit>();
-        if (unit != null && collision.transform.GetComponent<EnemyBehavior>() == null)
+        if (isPlayer)
         {
-            unit.health -= damage;
-            Destroy(gameObject);
+            if (unit != null && collision.transform.GetComponent<EnemyBehavior>() != null)
+            {
+                unit.health -= damage;
+                Destroy(gameObject);
+            }
+        }
+        else
+        {
+            if (unit != null && collision.transform.GetComponent<EnemyBehavior>() == null)
+            {
+                unit.health -= damage;
+                Destroy(gameObject);
+            }
         }
     }
 }

@@ -14,7 +14,12 @@ public class PlayerScript : MonoBehaviour
     public GameObject bullet;
     public float bulletInterval = 0.2f;
     private float nextShotTime = 0f;
-    
+
+    public Transform leftWall;
+    public Transform rightWall;
+    public Transform upWall;
+    public Transform downWall;
+
 
     void Start()
     {
@@ -24,30 +29,31 @@ public class PlayerScript : MonoBehaviour
     void Update() 
     {
         // Move using mouse 
-        transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 1));
+        //transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 1));
 
         // Ensure player remains in boundary
-        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -screenWidth, screenWidth), Mathf.Clamp(transform.position.y, -screenHeight, screenHeight), transform.position.z);
- 
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, leftWall.position.x, rightWall.position.x), Mathf.Clamp(transform.position.y, downWall.position.y, upWall.position.y), transform.position.z);
+
         // Move using WASD
         // Move horizontal
-        // float hor = Input.GetAxis("Horizontal");
-        // transform.position += new Vector3(hor, 0, 0) * playerSpeed;
+        float hor = Input.GetAxis("Horizontal");
+        transform.position += new Vector3(hor, 0, 0) * playerSpeed;
 
-        // Move vertical
-        // float ver = Input.GetAxis("Vertical");
-        // transform.position += new Vector3(0, ver, 0) * playerSpeed;
+        //Move vertical
+         float ver = Input.GetAxis("Vertical");
+        transform.position += new Vector3(0, ver, 0) * playerSpeed;
 
         // wrong 
         // rb.AddForce(new Vector2(Input.GetAxis("Horizontal")*playerSpeed, Input.GetAxis("Vertical")*playerSpeed));
         // rb.AddForce(Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 1)));
 
         // Shoot
-        if ((Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.Mouse0)) && (nextShotTime <= Time.time)) {
+        if (/*(Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.Mouse0)) &&*/ (nextShotTime >= bulletInterval)) {
             Debug.Log("shoot");
             Shoot();
-            nextShotTime = Time.time + bulletInterval;
+            nextShotTime = 0.0f;
         }
+        nextShotTime += Time.deltaTime;
 
         // // Reset to start
         // if (Input.GetKeyDown(KeyCode.R)) {
