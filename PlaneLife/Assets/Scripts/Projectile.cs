@@ -24,6 +24,12 @@ public class Projectile : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        
+        print("TEST");
+        Unit unit = collision.transform.GetComponent<Unit>();
+        if (unit != null && collision.transform.GetComponent<EnemyBehavior>() == null)
+        {
+            unit.health -= damage;
+            Destroy(gameObject);
+        }
     }
 }

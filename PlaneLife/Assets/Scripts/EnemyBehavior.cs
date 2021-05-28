@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class EnemyBehavior : MonoBehaviour
+public class EnemyBehavior : Unit
 {
     public enum MOVEMENT_BEHAVIOR
     {
@@ -11,7 +11,6 @@ public class EnemyBehavior : MonoBehaviour
         SINE
     }
 
-    public int health = 5;
     public int damage = 1;
 
     public float fireRate = 1.0f;
