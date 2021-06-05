@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 33602019567761924}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -109,6 +109,8 @@ MonoBehaviour:
   curveRadius: 2
   curveSpeed: 5
   curveDirection: 0
+  powerUp: {fileID: 5531040400073211827, guid: 19b96d84d4cd32843891d2f7d8b5bfe6, type: 3}
+  dropChance: 100
 --- !u!50 &2924945299457527143
 Rigidbody2D:
   serializedVersion: 4
@@ -269,6 +271,7 @@ MonoBehaviour:
   damage: 1
   speed: 25
   direction: {x: 0, y: 0, z: 0}
+  isPlayer: 0
 --- !u!70 &7882136259439335508
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

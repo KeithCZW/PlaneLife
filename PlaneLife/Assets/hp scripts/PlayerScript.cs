@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -20,13 +21,17 @@ public class PlayerScript : MonoBehaviour
     public Transform upWall;
     public Transform downWall;
 
+    public float prevPowerupType = 1f;
+    public float currPowerupType = 1f;
+    public Text power;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        power = GetComponent<Text>();
     }
 
-    void Update() 
+    public void Update() 
     {
         // Move using mouse 
         //transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 1));
@@ -43,10 +48,6 @@ public class PlayerScript : MonoBehaviour
          float ver = Input.GetAxis("Vertical");
         transform.position += new Vector3(0, ver, 0) * playerSpeed;
 
-        // wrong 
-        // rb.AddForce(new Vector2(Input.GetAxis("Horizontal")*playerSpeed, Input.GetAxis("Vertical")*playerSpeed));
-        // rb.AddForce(Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 1)));
-
         // Shoot
         if (/*(Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.Mouse0)) &&*/ (nextShotTime >= bulletInterval)) {
             Debug.Log("shoot");
@@ -54,17 +55,32 @@ public class PlayerScript : MonoBehaviour
             nextShotTime = 0.0f;
         }
         nextShotTime += Time.deltaTime;
-
-        // // Reset to start
-        // if (Input.GetKeyDown(KeyCode.R)) {
-        //     transform.position = new Vector3(0,-4,0);
-        // }
+        
+        power.text = currPowerupType.ToString();
           
     }
 
-    void Shoot()
+    public void Shoot()
     {
-        Instantiate(bullet, playerFirePoint.position, playerFirePoint.rotation);
+        if (currPowerupType == 1f) {
+            Instantiate(bullet, playerFirePoint.position, playerFirePoint.rotation);
+        } else if (currPowerupType == 2f) {
+            Instantiate(bullet, playerFirePoint.position + new Vector3(0.5f,0,0), playerFirePoint.rotation);    
+            Instantiate(bullet, playerFirePoint.position + new Vector3(-0.5f,0,0), playerFirePoint.rotation);
+        } else if (currPowerupType == 3f) {
+            Instantiate(bullet, playerFirePoint.position, Quaternion.Euler(0,0,-45));
+            Instantiate(bullet, playerFirePoint.position, playerFirePoint.rotation);    
+            Instantiate(bullet, playerFirePoint.position, Quaternion.Euler(0,0,45));
+        } else if (currPowerupType == 4f) {
+            Instantiate(bullet, playerFirePoint.position + new Vector3(-1f,0,0), Quaternion.Euler(0,0,5));
+            Instantiate(bullet, playerFirePoint.position + new Vector3(-1f,0,0), Quaternion.Euler(0,0,-5));   
+            Instantiate(bullet, playerFirePoint.position + new Vector3(1f,0,0), Quaternion.Euler(0,0,5));    
+            Instantiate(bullet, playerFirePoint.position + new Vector3(1f,0,0), Quaternion.Euler(0,0,-5));
+        } else {
+            bulletInterval = 0.1f;
+            currPowerupType = prevPowerupType;
+            Shoot();
+        }
     }
 
     private void OnMouseDown() {

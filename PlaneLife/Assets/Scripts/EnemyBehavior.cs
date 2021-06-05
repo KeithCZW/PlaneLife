@@ -37,6 +37,9 @@ public class EnemyBehavior : Unit
 
     public CURVE_DIRECTION curveDirection = CURVE_DIRECTION.UP;
 
+    public GameObject powerUp;
+    public float dropChance = 30;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -47,7 +50,11 @@ public class EnemyBehavior : Unit
     void Update()
     {
         if (health <= 0)
-        {
+        {   
+            float drop = Random.Range(1,100); 
+            if (drop <= dropChance ) {
+                Instantiate(powerUp, transform.position, transform.rotation);
+            }
             Destroy(gameObject);
         }
         if (timer < 1 / fireRate) // Timer for shooting
@@ -105,5 +112,9 @@ public class EnemyBehavior : Unit
         projScript.damage = damage;
         projScript.direction = direction;
         projectileCopy.SetActive(true);        
+    }
+
+    private void OnCollisionEnter2D(Collision2D other) {
+        Physics2D.IgnoreCollision(other.collider, GetComponent<Collider2D>());
     }
 }

@@ -24,7 +24,9 @@ public class BulletScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other) 
     {
-        if (other.tag != "Player" && other.tag != "Bullet") {
+        if (other.tag != "Player" 
+            && other.tag != "Bullet"
+            && other.tag!= "Powerup") {
             Debug.Log(other.name);
             Unit unit = other.transform.GetComponent<Unit>();
             if (unit != null && other.transform.GetComponent<EnemyBehavior>() != null)
