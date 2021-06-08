@@ -27,6 +27,8 @@ public class EnemyBehavior : Unit
     public MOVEMENT_BEHAVIOR behavior = MOVEMENT_BEHAVIOR.LINEAR;
     public float curveRadius = 2.0f;
     public float curveSpeed = 5.0f;
+
+    public int score = 1; // Amount to give when unit dies
     public enum CURVE_DIRECTION
     {
         UP,
@@ -55,6 +57,7 @@ public class EnemyBehavior : Unit
             if (drop <= dropChance ) {
                 Instantiate(powerUp, transform.position, transform.rotation);
             }
+            GameObject.FindGameObjectWithTag("Score").GetComponent<ScoreBoard>().score += score;
             Destroy(gameObject);
         }
         if (timer < 1 / fireRate) // Timer for shooting
