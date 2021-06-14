@@ -23,12 +23,11 @@ public class PlayerScript : MonoBehaviour
 
     public float prevPowerupType = 1f;
     public float currPowerupType = 1f;
-    public Text power;
+    public Sprite boosted;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        power = GetComponent<Text>();
     }
 
     public void Update() 
@@ -50,32 +49,40 @@ public class PlayerScript : MonoBehaviour
 
         // Shoot
         if (/*(Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.Mouse0)) &&*/ (nextShotTime >= bulletInterval)) {
-            Debug.Log("shoot");
             Shoot();
             nextShotTime = 0.0f;
         }
         nextShotTime += Time.deltaTime;
         
-        power.text = currPowerupType.ToString();
           
     }
 
     public void Shoot()
     {
         if (currPowerupType == 1f) {
-            Instantiate(bullet, playerFirePoint.position, playerFirePoint.rotation);
+            GameObject b1 = Instantiate(bullet, playerFirePoint.position, playerFirePoint.rotation);
+            setBulletSprite(b1);
         } else if (currPowerupType == 2f) {
-            Instantiate(bullet, playerFirePoint.position + new Vector3(0.5f,0,0), playerFirePoint.rotation);    
-            Instantiate(bullet, playerFirePoint.position + new Vector3(-0.5f,0,0), playerFirePoint.rotation);
+            GameObject b1 = Instantiate(bullet, playerFirePoint.position + new Vector3(0.5f,-0.5f,0), playerFirePoint.rotation);    
+            GameObject b2 = Instantiate(bullet, playerFirePoint.position + new Vector3(-0.5f,-0.5f,0), playerFirePoint.rotation);
+            setBulletSprite(b1);
+            setBulletSprite(b2);
         } else if (currPowerupType == 3f) {
-            Instantiate(bullet, playerFirePoint.position, Quaternion.Euler(0,0,-45));
-            Instantiate(bullet, playerFirePoint.position, playerFirePoint.rotation);    
-            Instantiate(bullet, playerFirePoint.position, Quaternion.Euler(0,0,45));
+            GameObject b1 = Instantiate(bullet, playerFirePoint.position, Quaternion.Euler(0,0,-45));
+            GameObject b2 = Instantiate(bullet, playerFirePoint.position, playerFirePoint.rotation);    
+            GameObject b3 = Instantiate(bullet, playerFirePoint.position, Quaternion.Euler(0,0,45));
+            setBulletSprite(b1);
+            setBulletSprite(b2);
+            setBulletSprite(b3);
         } else if (currPowerupType == 4f) {
-            Instantiate(bullet, playerFirePoint.position + new Vector3(-1f,0,0), Quaternion.Euler(0,0,5));
-            Instantiate(bullet, playerFirePoint.position + new Vector3(-1f,0,0), Quaternion.Euler(0,0,-5));   
-            Instantiate(bullet, playerFirePoint.position + new Vector3(1f,0,0), Quaternion.Euler(0,0,5));    
-            Instantiate(bullet, playerFirePoint.position + new Vector3(1f,0,0), Quaternion.Euler(0,0,-5));
+            GameObject b1 = Instantiate(bullet, playerFirePoint.position + new Vector3(-0.9f,-0.8f,0), Quaternion.Euler(0,0,5));
+            GameObject b2 = Instantiate(bullet, playerFirePoint.position + new Vector3(-0.9f,-0.8f,0), Quaternion.Euler(0,0,-5));   
+            GameObject b3 = Instantiate(bullet, playerFirePoint.position + new Vector3(0.9f,-0.8f,0), Quaternion.Euler(0,0,5));    
+            GameObject b4 = Instantiate(bullet, playerFirePoint.position + new Vector3(0.9f,-0.8f,0), Quaternion.Euler(0,0,-5));
+            setBulletSprite(b1);
+            setBulletSprite(b2);
+            setBulletSprite(b3);
+            setBulletSprite(b4);
         } else {
             bulletInterval = 0.1f;
             currPowerupType = prevPowerupType;
@@ -83,7 +90,9 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
-    private void OnMouseDown() {
-        Debug.Log("onMouseDown");
+    void setBulletSprite(GameObject bullet) {
+        if (bulletInterval != 0.2f) {
+            bullet.GetComponent<SpriteRenderer>().sprite = boosted;
+        }
     }
 }

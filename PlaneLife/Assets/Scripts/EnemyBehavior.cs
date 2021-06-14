@@ -109,7 +109,7 @@ public class EnemyBehavior : Unit
     private void Fire(Vector3 direction)
     {
         GameObject projectileCopy = Instantiate(projectile);
-        projectileCopy.transform.position = transform.position;
+        projectileCopy.transform.position = transform.position + new Vector3(0,-0.75f,0);
         projectileCopy.transform.SetParent(GameObject.FindGameObjectWithTag("ProjectileHolder").transform);
         Projectile projScript = projectileCopy.GetComponent<Projectile>();
         projScript.damage = damage;
