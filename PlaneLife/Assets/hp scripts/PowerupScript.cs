@@ -26,6 +26,7 @@ public class PowerupScript : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other) {
         if (other.gameObject.tag == "Player") 
         { 
+            SoundManagerScript.PlaySound ("collectPowerup");
             other.gameObject.GetComponent<PlayerScript>().prevPowerupType = other.gameObject.GetComponent<PlayerScript>().currPowerupType;
             other.gameObject.GetComponent<PlayerScript>().currPowerupType = this.powerupType;
             Destroy(gameObject);
