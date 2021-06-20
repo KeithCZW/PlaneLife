@@ -38,7 +38,7 @@ public class Projectile : MonoBehaviour
         }
         else
         {
-            if (unit != null && collision.transform.GetComponent<EnemyBehavior>() == null)
+            if (unit != null && collision.transform.GetComponent<EnemyBehavior>() == null && collision.transform.GetComponent<BossBehavior>() == null)
             {
                 unit.health -= damage;
                 Destroy(gameObject);
