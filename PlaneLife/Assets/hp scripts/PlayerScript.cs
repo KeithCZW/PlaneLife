@@ -62,22 +62,22 @@ public class PlayerScript : MonoBehaviour
 
     public void Shoot()
     {
-        if (currPowerupType == 1f) {
+        if (currPowerupType == 1f) { // No power up
             Instantiate(bullet, playerFirePoint.position, playerFirePoint.rotation);
-        } else if (currPowerupType == 2f) {
+        } else if (currPowerupType == 2f) { // 2 streams but shoot straight
             Instantiate(bullet, playerFirePoint.position + new Vector3(0.5f,0,0), playerFirePoint.rotation);    
             Instantiate(bullet, playerFirePoint.position + new Vector3(-0.5f,0,0), playerFirePoint.rotation);
-        } else if (currPowerupType == 3f) {
+        } else if (currPowerupType == 3f) { // Spread shot
             Instantiate(bullet, playerFirePoint.position, Quaternion.Euler(0,0,-45));
             Instantiate(bullet, playerFirePoint.position, playerFirePoint.rotation);    
             Instantiate(bullet, playerFirePoint.position, Quaternion.Euler(0,0,45));
-        } else if (currPowerupType == 4f) {
+        } else if (currPowerupType == 4f) { // Shoot 2 stream but spread
             Instantiate(bullet, playerFirePoint.position + new Vector3(-1f,0,0), Quaternion.Euler(0,0,5));
             Instantiate(bullet, playerFirePoint.position + new Vector3(-1f,0,0), Quaternion.Euler(0,0,-5));   
             Instantiate(bullet, playerFirePoint.position + new Vector3(1f,0,0), Quaternion.Euler(0,0,5));    
             Instantiate(bullet, playerFirePoint.position + new Vector3(1f,0,0), Quaternion.Euler(0,0,-5));
         } else {
-            bulletInterval = 0.1f;
+            bulletInterval = 0.1f; // Double bullet speed
             currPowerupType = prevPowerupType;
             Shoot();
         }
