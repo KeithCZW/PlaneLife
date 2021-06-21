@@ -52,7 +52,7 @@ public class BossBehavior : EnemyBehavior
         else if (currentPhase == 1)
         {
             curveDirection = CURVE_DIRECTION.UP;
-            fireRate = 3.0f;
+            fireRate = 1.5f;
             if (movingLeft)
             {
                 planeDirection = new Vector3(-1, 0, 0);

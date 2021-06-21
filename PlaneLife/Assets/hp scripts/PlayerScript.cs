@@ -42,11 +42,11 @@ public class PlayerScript : MonoBehaviour
         // Move using WASD
         // Move horizontal
         float hor = Input.GetAxis("Horizontal");
-        transform.position += new Vector3(hor, 0, 0) * playerSpeed;
+        transform.position += new Vector3(hor, 0, 0) * playerSpeed * Time.deltaTime;
 
         //Move vertical
          float ver = Input.GetAxis("Vertical");
-        transform.position += new Vector3(0, ver, 0) * playerSpeed;
+        transform.position += new Vector3(0, ver, 0) * playerSpeed * Time.deltaTime;
 
         // Shoot
         if (/*(Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.Mouse0)) &&*/ (nextShotTime >= bulletInterval)) {
