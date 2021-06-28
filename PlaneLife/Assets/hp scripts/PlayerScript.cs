@@ -41,11 +41,11 @@ public class PlayerScript : MonoBehaviour
     // Move using WASD
     // Move horizontal
     float hor = Input.GetAxis("Horizontal");
-    transform.position += new Vector3(hor, 0, 0) * playerSpeed;
+    transform.position += new Vector3(hor, 0, 0) * playerSpeed * Time.deltaTime;
     
     //Move vertical
     float ver = Input.GetAxis("Vertical");
-    transform.position += new Vector3(0, ver, 0) * playerSpeed;
+    transform.position += new Vector3(0, ver, 0) * playerSpeed * Time.deltaTime;
 
     // Shoot
     if (/*(Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.Mouse0)) &&*/ (nextShotTime >= bulletInterval))
@@ -68,31 +68,9 @@ public class PlayerScript : MonoBehaviour
 
     if (currPowerupType == 1f)
     {
-        // Move using mouse 
-        //transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 1));
+            GameObject b1 = Instantiate(bullet, playerFirePoint.position, playerFirePoint.rotation);
+        setBulletSprite(b1);
 
-        // Ensure player remains in boundary
-        transform.position = new Vector3(Mathf.Clamp(transform.position.x, leftWall.position.x, rightWall.position.x), Mathf.Clamp(transform.position.y, downWall.position.y, upWall.position.y), transform.position.z);
-
-        // Move using WASD
-        // Move horizontal
-        float hor = Input.GetAxis("Horizontal");
-        transform.position += new Vector3(hor, 0, 0) * playerSpeed * Time.deltaTime;
-
-        //Move vertical
-         float ver = Input.GetAxis("Vertical");
-        transform.position += new Vector3(0, ver, 0) * playerSpeed * Time.deltaTime;
-
-        // Shoot
-        if (/*(Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.Mouse0)) &&*/ (nextShotTime >= bulletInterval)) {
-            Debug.Log("shoot");
-            Shoot();
-            nextShotTime = 0.0f;
-        }
-        nextShotTime += Time.deltaTime;
-        
-        // power.text = currPowerupType.ToString();
-          
     }
     else if (currPowerupType == 2f)
     {

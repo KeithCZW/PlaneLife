@@ -34,7 +34,7 @@ public class SoundManagerScript : MonoBehaviour
         audioSource.PlayOneShot(bulletSound);
         break;
       case "bulletBoosted":
-        audioSource.volume = 0.3f;
+        audioSource.volume = 0.1f;
         audioSource.PlayOneShot(bulletBoostedSound);
         break;
       case "collectPowerup":
