@@ -29,7 +29,7 @@ public class BulletScript : MonoBehaviour
             && other.tag!= "Powerup") {
             Debug.Log(other.name);
             Unit unit = other.transform.GetComponent<Unit>();
-            if (unit != null && other.transform.GetComponent<EnemyBehavior>() != null)
+            if (unit != null /*&& other.transform.GetComponent<EnemyBehavior>() != null*/)
             {
                 SoundManagerScript.PlaySound ("enemyHit");
                 unit.health -= 1;

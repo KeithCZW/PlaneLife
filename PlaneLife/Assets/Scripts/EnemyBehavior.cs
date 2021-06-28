@@ -21,8 +21,8 @@ public class EnemyBehavior : Unit
     public GameObject projectile;
     public Vector3 projectileDirection = new Vector3(0, -1, 0);
 
-    private float timer = 0.0f;
-    private float fTimer = 0.0f;
+    protected float timer = 0.0f;
+    protected float fTimer = 0.0f;
 
     public MOVEMENT_BEHAVIOR behavior = MOVEMENT_BEHAVIOR.LINEAR;
     public float curveRadius = 2.0f;
@@ -84,7 +84,7 @@ public class EnemyBehavior : Unit
         
     }
 
-    private void SineMovement()
+    protected void SineMovement()
     {
         fTimer += Time.deltaTime * curveSpeed;
         Vector3 sin = new Vector3(0,0,0);
@@ -107,10 +107,10 @@ public class EnemyBehavior : Unit
         transform.position += (planeDirection + sin) * planeSpeed * Time.deltaTime;
     }
 
-    private void Fire(Vector3 direction)
+    protected void Fire(Vector3 direction)
     {
         GameObject projectileCopy = Instantiate(projectile);
-        projectileCopy.transform.position = transform.position + new Vector3(0,-0.75f,0);
+        projectileCopy.transform.position = transform.Find("FiringPoint").position;
         projectileCopy.transform.SetParent(GameObject.FindGameObjectWithTag("ProjectileHolder").transform);
         Projectile projScript = projectileCopy.GetComponent<Projectile>();
         projScript.damage = damage;
@@ -118,7 +118,7 @@ public class EnemyBehavior : Unit
         projectileCopy.SetActive(true);        
     }
 
-    private void OnCollisionEnter2D(Collision2D other) {
+    protected void OnCollisionEnter2D(Collision2D other) {
         Physics2D.IgnoreCollision(other.collider, GetComponent<Collider2D>());
     }
 }
