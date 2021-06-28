@@ -10,7 +10,7 @@ public class BackgroundScript : MonoBehaviour
 
   void Start()
   {
-      speed = Random.Range(0.005f, 0.01f);
+      speed = Random.Range(0.5f, 1.0f);
       float darkness = speed * 100f - 0.25f;
       Debug.Log("speed " + speed);
       Debug.Log("dakness " + darkness);
@@ -26,7 +26,7 @@ public class BackgroundScript : MonoBehaviour
     }
     else
     {
-      transform.position += new Vector3(0, -speed, 0);
+      transform.position += new Vector3(0, -speed * Time.deltaTime, 0);
     }
   }
 }

@@ -22,7 +22,7 @@ public class RocketScript : MonoBehaviour
     }
     else
     {
-      transform.position += new Vector3(0.005f, -0.005f, 0);
+      transform.position += new Vector3(0.5f, -0.5f, 0) * Time.deltaTime;
     }
   }
 }

@@ -91,7 +91,7 @@ MonoBehaviour:
   score: 1
   curveDirection: 0
   powerUp: {fileID: 5531040400073211827, guid: 19b96d84d4cd32843891d2f7d8b5bfe6, type: 3}
-  dropChance: 100
+  dropChance: 15
 --- !u!212 &2348659793921801480
 SpriteRenderer:
   m_ObjectHideFlags: 0
