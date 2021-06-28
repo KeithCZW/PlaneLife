@@ -53,6 +53,7 @@ public class EnemyBehavior : Unit
     {
         if (health <= 0)
         {   
+            // SoundManagerScript.PlaySound ("enemyDeath");
             float drop = Random.Range(1,100); 
             if (drop <= dropChance ) {
                 Instantiate(powerUp, transform.position, transform.rotation);

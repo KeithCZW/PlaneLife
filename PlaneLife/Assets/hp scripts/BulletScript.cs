@@ -31,6 +31,7 @@ public class BulletScript : MonoBehaviour
             Unit unit = other.transform.GetComponent<Unit>();
             if (unit != null /*&& other.transform.GetComponent<EnemyBehavior>() != null*/)
             {
+                SoundManagerScript.PlaySound ("enemyHit");
                 unit.health -= 1;
                 Destroy(gameObject);
             }

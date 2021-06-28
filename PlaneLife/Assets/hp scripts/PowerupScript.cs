@@ -10,7 +10,7 @@ public class PowerupScript : MonoBehaviour
 
     void Start()
     {   powerupType = Random.Range(2,6); 
-        powerupSpeed = powerupType;
+        powerupSpeed = powerupType * 1.5f;
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = -transform.up * powerupSpeed;
     }
@@ -25,7 +25,8 @@ public class PowerupScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other) {
         if (other.gameObject.tag == "Player") 
-        {
+        { 
+            SoundManagerScript.PlaySound ("collectPowerup");
             other.gameObject.GetComponent<PlayerScript>().prevPowerupType = other.gameObject.GetComponent<PlayerScript>().currPowerupType;
             other.gameObject.GetComponent<PlayerScript>().currPowerupType = this.powerupType;
             Destroy(gameObject);
