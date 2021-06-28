@@ -105,7 +105,7 @@ public class PlayerScript : MonoBehaviour
       Invoke("setBulletInterval", 3);
       currPowerupType = prevPowerupType;
       Shoot();
-    }
+    } 
   }
 
   void setBulletSprite(GameObject bullet)
