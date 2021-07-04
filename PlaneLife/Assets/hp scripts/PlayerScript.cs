@@ -95,10 +95,10 @@ public class PlayerScript : MonoBehaviour
     }
     else if (currPowerupType == 4f)
     {
-      GameObject b1 = Instantiate(bullet, playerFirePoint.position + new Vector3(-0.9f, -0.8f, 0), Quaternion.Euler(0, 0, 5));
-      GameObject b2 = Instantiate(bullet, playerFirePoint.position + new Vector3(-0.9f, -0.8f, 0), Quaternion.Euler(0, 0, -5));
-      GameObject b3 = Instantiate(bullet, playerFirePoint.position + new Vector3(0.9f, -0.8f, 0), Quaternion.Euler(0, 0, 5));
-      GameObject b4 = Instantiate(bullet, playerFirePoint.position + new Vector3(0.9f, -0.8f, 0), Quaternion.Euler(0, 0, -5));
+      GameObject b1 = Instantiate(bullet, playerFirePoint.position + new Vector3(-0.5f, -0.5f, 0), Quaternion.Euler(0, 0, 2));
+      GameObject b2 = Instantiate(bullet, playerFirePoint.position + new Vector3(-0.5f, -0.5f, 0), Quaternion.Euler(0, 0, -2));
+      GameObject b3 = Instantiate(bullet, playerFirePoint.position + new Vector3(0.5f, -0.5f, 0), Quaternion.Euler(0, 0, 2));
+      GameObject b4 = Instantiate(bullet, playerFirePoint.position + new Vector3(0.5f, -0.5f, 0), Quaternion.Euler(0, 0, -2));
       setBulletSprite(b1);
       setBulletSprite(b2);
       setBulletSprite(b3);

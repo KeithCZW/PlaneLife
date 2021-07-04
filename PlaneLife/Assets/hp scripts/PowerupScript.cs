@@ -9,7 +9,7 @@ public class PowerupScript : MonoBehaviour
     private Rigidbody2D rb;
 
     void Start()
-    {   powerupType = Random.Range(2,6); 
+    {   powerupType = Random.Range(4,5); 
         powerupSpeed = powerupType * 1.5f;
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = -transform.up * powerupSpeed;

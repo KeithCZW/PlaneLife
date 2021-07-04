@@ -80,7 +80,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.72, y: 3.02}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -125,7 +125,7 @@ PolygonCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1.72, y: 3.02}
-    newSize: {x: 1, y: 1}
+    newSize: {x: 1.72, y: 3.02}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -228,6 +228,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  damage: 1
+  fireRate: 1
+  planeSpeed: 5
+  planeDirection: {x: 0, y: 0, z: 0}
+  projectile: {fileID: 0}
+  projectileDirection: {x: 0, y: -1, z: 0}
+  behavior: 0
+  curveRadius: 2
+  curveSpeed: 5
+  score: 1
+  curveDirection: 0
+  powerUp: {fileID: 0}
+  dropChance: 30
+  healthThresholds: 
+  leftBoundary: {fileID: 0}
+  rightBoundary: {fileID: 0}
 --- !u!1 &7610262925472173739
 GameObject:
   m_ObjectHideFlags: 0
