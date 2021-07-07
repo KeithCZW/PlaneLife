@@ -15,7 +15,7 @@ public class ScoreBoard : MonoBehaviour
         if (!destroy)
             DontDestroyOnLoad(transform.gameObject);
 
-        if (GameObject.FindGameObjectsWithTag("Score").Length > 1)
+        if (GameObject.FindGameObjectsWithTag("Score").Length > 1 && !destroy)
         {
             Destroy(this.gameObject);
         }

@@ -20,6 +20,7 @@ public class EnemyBehavior : Unit
 
     public GameObject projectile;
     public Vector3 projectileDirection = new Vector3(0, -1, 0);
+    public float projectileSpeed = 20.0f;
 
     protected float timer = 0.0f;
     protected float fTimer = 0.0f;
@@ -56,7 +57,7 @@ public class EnemyBehavior : Unit
             // SoundManagerScript.PlaySound ("enemyDeath");
             float drop = Random.Range(1,100); 
             if (drop <= dropChance ) {
-                Instantiate(powerUp, transform.position, transform.rotation);
+                Instantiate(powerUp, transform.position, new Quaternion(0,0,0,0),GameObject.FindGameObjectWithTag("ProjectileHolder").transform);
             }
             GameObject.FindGameObjectWithTag("Score").GetComponent<ScoreBoard>().score += score;
             Destroy(gameObject);
@@ -113,8 +114,10 @@ public class EnemyBehavior : Unit
         projectileCopy.transform.position = transform.Find("FiringPoint").position;
         projectileCopy.transform.SetParent(GameObject.FindGameObjectWithTag("ProjectileHolder").transform);
         Projectile projScript = projectileCopy.GetComponent<Projectile>();
+        projScript.speed = projectileSpeed;
         projScript.damage = damage;
         projScript.direction = direction;
+        projectileCopy.transform.Rotate(transform.rotation.eulerAngles);
         projectileCopy.SetActive(true);        
     }
 
