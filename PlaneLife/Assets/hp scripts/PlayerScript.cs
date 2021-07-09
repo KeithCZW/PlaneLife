@@ -26,6 +26,9 @@ public class PlayerScript : MonoBehaviour
   public float currPowerupType = 1f;
   public Sprite boosted;
 
+    public bool immortal = false;
+    private float immortalTimer = 0.0f;
+    private float alphaBlinker = 0.0f;
   void Start()
   {
     rb = GetComponent<Rigidbody2D>();
@@ -60,6 +63,29 @@ public class PlayerScript : MonoBehaviour
     {
         SceneManager.LoadScene("ScoreScene", LoadSceneMode.Single);
     }
+
+        if (immortal)
+        {
+            alphaBlinker += Time.deltaTime;
+            if (alphaBlinker > 0.1) // Time to blink transparency
+            {
+                alphaBlinker = 0.0f;
+                Color temp = transform.GetComponent<SpriteRenderer>().color;
+                if (temp.a == 1)
+                    temp.a = 0.5f;
+                else
+                    temp.a = 1;
+                transform.GetComponent<SpriteRenderer>().color = temp;
+            }
+            immortalTimer -= Time.deltaTime;
+            if (immortalTimer <= 0.0f)
+            {
+                immortal = false;
+                Color temp = transform.GetComponent<SpriteRenderer>().color;
+                temp.a = 1;
+                transform.GetComponent<SpriteRenderer>().color = temp;
+            }
+        }
 
     }
 
@@ -125,4 +151,10 @@ public class PlayerScript : MonoBehaviour
   {
     bulletInterval = 0.2f;
   }
+
+    public void TurnImmortal()
+    {
+        immortal = true;
+        immortalTimer = 1.0f;
+    }
 }

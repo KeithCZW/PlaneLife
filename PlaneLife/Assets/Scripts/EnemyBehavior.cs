@@ -122,6 +122,16 @@ public class EnemyBehavior : Unit
     }
 
     protected void OnCollisionEnter2D(Collision2D other) {
-        Physics2D.IgnoreCollision(other.collider, GetComponent<Collider2D>());
+        Unit unit = other.transform.GetComponent<Unit>();
+
+        if (unit != null && other.transform.GetComponent<EnemyBehavior>() == null && other.transform.GetComponent<BossBehavior>() == null)
+        {
+            if (!other.transform.GetComponent<PlayerScript>().immortal)
+            {
+                other.transform.GetComponent<PlayerScript>().TurnImmortal();
+                unit.health -= damage;
+                Destroy(gameObject);
+            }
+        }
     }
 }

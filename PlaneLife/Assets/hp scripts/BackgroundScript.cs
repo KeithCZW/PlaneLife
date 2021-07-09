@@ -12,8 +12,8 @@ public class BackgroundScript : MonoBehaviour
   {
       speed = Random.Range(0.5f, 1.0f);
       float darkness = speed * 100f - 0.25f;
-      Debug.Log("speed " + speed);
-      Debug.Log("dakness " + darkness);
+      //Debug.Log("speed " + speed);
+      //Debug.Log("dakness " + darkness);
       GetComponent<SpriteRenderer>().color = new Color(darkness,darkness,darkness);
     //   GetComponent<SpriteRenderer>().color = new Color(0.2f,0.2f,0.2f);
   }

@@ -24,6 +24,7 @@ public class BulletScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other) 
     {
+        //Debug.Log("TRIGGERED");
         if (other.tag != "Player" 
             && other.tag != "Bullet"
             && other.tag!= "Powerup") {

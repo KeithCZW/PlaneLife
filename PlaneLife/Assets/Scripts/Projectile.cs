@@ -33,15 +33,19 @@ public class Projectile : MonoBehaviour
             if (unit != null && collision.transform.GetComponent<EnemyBehavior>() != null)
             {
                 unit.health -= damage;
-                Destroy(gameObject);
+                Destroy(gameObject);               
             }
         }
         else
         {
             if (unit != null && collision.transform.GetComponent<EnemyBehavior>() == null && collision.transform.GetComponent<BossBehavior>() == null)
             {
-                unit.health -= damage;
-                Destroy(gameObject);
+                if (!collision.transform.GetComponent<PlayerScript>().immortal)
+                {
+                    collision.transform.GetComponent<PlayerScript>().TurnImmortal();
+                    unit.health -= damage;
+                    Destroy(gameObject);
+                }
             }
         }
     }
