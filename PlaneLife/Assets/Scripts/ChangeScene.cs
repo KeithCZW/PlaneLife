@@ -15,4 +15,15 @@ public class ChangeScene : MonoBehaviour
     {
         GameObject.FindGameObjectWithTag("Score").GetComponent<ScoreBoard>().score = 0;
     }
+
+    public void UpdateScore()
+    {
+        int storedScore = PlayerPrefs.GetInt("lvl1");
+        int currentScore = GameObject.FindGameObjectWithTag("Score").GetComponent<ScoreBoard>().score;
+        if (currentScore > storedScore)
+        {
+            PlayerPrefs.SetInt("lvl1", currentScore);
+        }
+        
+    }
 }

@@ -10,6 +10,7 @@ public class ScoreBoard : MonoBehaviour
 
     public Text scoreText;
     public bool destroy = false;
+    public bool showHighscore = false;
     void Start()
     {
         if (!destroy)
@@ -26,6 +27,11 @@ public class ScoreBoard : MonoBehaviour
     {
         if (scoreText != null)
             scoreText.text = GameObject.FindGameObjectWithTag("Score").GetComponent<ScoreBoard>().score.ToString();
+
+        if (showHighscore)
+        {
+            scoreText.text += "\nHighscore:" + PlayerPrefs.GetInt("lvl1");
+        }
     }
 
 

@@ -13,6 +13,8 @@ public class BossBehavior : EnemyBehavior
 
     bool movingLeft = true;
 
+    int bulletSpread = 1;
+
     void Start()
     {
 
@@ -68,6 +70,31 @@ public class BossBehavior : EnemyBehavior
         {
             curveDirection = CURVE_DIRECTION.UP;
             fireRate = 1.5f;
+            bulletSpread = 3;
+            if (movingLeft)
+            {
+                planeDirection = new Vector3(-1, 0, 0);
+                if (transform.position.x < leftBoundary.transform.position.x)
+                {
+                    movingLeft = !movingLeft;
+                }
+            }
+            else
+            {
+                planeDirection = new Vector3(1, 0, 0);
+                if (transform.position.x > rightBoundary.transform.position.x)
+                {
+                    movingLeft = !movingLeft;
+                }
+            }
+            SineMovement();
+        }
+        else if (currentPhase == 3)
+        {
+            curveDirection = CURVE_DIRECTION.LEFT;
+            fireRate = 1.0f;
+            bulletSpread = 6;
+            projectileSpeed = 5.0f;
             if (movingLeft)
             {
                 planeDirection = new Vector3(-1, 0, 0);
@@ -97,6 +124,24 @@ public class BossBehavior : EnemyBehavior
             Fire(projectileDirection);
         }
 
+    }
+
+    protected new void Fire(Vector3 direction)
+    {
+        float angleDifference = 90.0f / bulletSpread;
+        for (int i = 0;i < bulletSpread;i++)
+        {
+            GameObject projectileCopy = Instantiate(projectile, GameObject.FindGameObjectWithTag("ProjectileHolder").transform);
+            projectileCopy.transform.position = transform.Find("FiringPoint").position;
+            Projectile projScript = projectileCopy.GetComponent<Projectile>();
+            projScript.speed = projectileSpeed;
+            projScript.damage = damage;
+            projScript.direction = direction;
+            projectileCopy.transform.Rotate(transform.rotation.eulerAngles);
+            projectileCopy.transform.Rotate(0, 0, -angleDifference * (bulletSpread - 1)/2 + angleDifference * i);
+            projScript.direction = Quaternion.Euler(0, 0, -angleDifference * (bulletSpread - 1) / 2 + angleDifference * i) * projScript.direction;
+            projectileCopy.SetActive(true);
+        }
     }
 
 }
