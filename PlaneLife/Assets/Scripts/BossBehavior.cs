@@ -35,8 +35,16 @@ public class BossBehavior : EnemyBehavior
                 currentPhase++;
             }
         }
-
         if (currentPhase == 0)
+        {
+            planeDirection = new Vector3(0, -1, 0);
+            if (transform.localPosition.y <= 2.9)
+            {
+                currentPhase++;
+            }
+            transform.position += planeDirection * planeSpeed * Time.deltaTime;
+        }
+        else if (currentPhase == 1)
         {
             if (movingLeft)
             {
@@ -56,7 +64,7 @@ public class BossBehavior : EnemyBehavior
             }
             transform.position += planeDirection * planeSpeed * Time.deltaTime;
         }
-        else if (currentPhase == 1)
+        else if (currentPhase == 2)
         {
             curveDirection = CURVE_DIRECTION.UP;
             fireRate = 1.5f;

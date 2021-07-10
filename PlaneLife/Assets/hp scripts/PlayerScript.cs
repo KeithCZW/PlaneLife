@@ -154,6 +154,7 @@ public class PlayerScript : MonoBehaviour
 
     public void TurnImmortal()
     {
+        SoundManagerScript.PlaySound("enemyHit");
         immortal = true;
         immortalTimer = 1.0f;
     }

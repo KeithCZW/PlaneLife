@@ -137,6 +137,7 @@ MonoBehaviour:
   planeDirection: {x: 1, y: -1, z: 0}
   projectile: {fileID: 5432601434015260742}
   projectileDirection: {x: 0, y: -1, z: 0}
+  projectileSpeed: 20
   behavior: 1
   curveRadius: 2
   curveSpeed: 5
@@ -144,6 +145,8 @@ MonoBehaviour:
   curveDirection: 0
   powerUp: {fileID: 5531040400073211827, guid: 19b96d84d4cd32843891d2f7d8b5bfe6, type: 3}
   dropChance: 100
+  explosion: {fileID: 3919131057339071287, guid: fbf2aaf4d03f6e248a470ac3933179a7,
+    type: 3}
 --- !u!50 &2924945299457527143
 Rigidbody2D:
   serializedVersion: 4

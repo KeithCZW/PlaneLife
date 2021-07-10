@@ -43,6 +43,8 @@ public class EnemyBehavior : Unit
     public GameObject powerUp;
     public float dropChance = 30;
 
+    public GameObject explosion;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -60,6 +62,7 @@ public class EnemyBehavior : Unit
                 Instantiate(powerUp, transform.position, new Quaternion(0,0,0,0),GameObject.FindGameObjectWithTag("ProjectileHolder").transform);
             }
             GameObject.FindGameObjectWithTag("Score").GetComponent<ScoreBoard>().score += score;
+            Instantiate(explosion, transform.position, new Quaternion(0, 0, 0, 0));
             Destroy(gameObject);
         }
         if (timer < 1 / fireRate) // Timer for shooting
@@ -130,6 +133,7 @@ public class EnemyBehavior : Unit
             {
                 other.transform.GetComponent<PlayerScript>().TurnImmortal();
                 unit.health -= damage;
+                Instantiate(explosion, transform.position, new Quaternion(0, 0, 0, 0));
                 Destroy(gameObject);
             }
         }

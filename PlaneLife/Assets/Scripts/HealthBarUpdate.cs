@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HealthBarUpdate : MonoBehaviour
 {
     // Start is called before the first frame update
     public bool boss = false;
-
+    public Text healthText;
     public Unit player;
 
     private int maxHealth;
@@ -29,6 +30,10 @@ public class HealthBarUpdate : MonoBehaviour
         else
         {
             transform.GetComponent<RectTransform>().sizeDelta = new Vector2((float)player.health / (float)maxHealth * maxWidth, 35);
+        }
+        if (healthText != null)
+        {
+            healthText.text = player.health.ToString() + "/" + maxHealth.ToString();
         }
     }
 }
