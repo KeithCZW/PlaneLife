@@ -8,7 +8,8 @@ public class EnemyBehavior : Unit
     public enum MOVEMENT_BEHAVIOR
     {
         LINEAR,
-        SINE
+        SINE,
+        SUICIDE
     }
 
     public int damage = 1;
@@ -29,6 +30,8 @@ public class EnemyBehavior : Unit
     public float curveRadius = 2.0f;
     public float curveSpeed = 5.0f;
 
+    public int numberOfBullets = 1;
+
     public int score = 1; // Amount to give when unit dies
     public enum CURVE_DIRECTION
     {
@@ -48,7 +51,13 @@ public class EnemyBehavior : Unit
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (behavior == MOVEMENT_BEHAVIOR.SUICIDE)
+        {
+            planeDirection = (GameObject.FindGameObjectWithTag("Player").transform.position - transform.position).normalized;
+            projectileDirection = planeDirection;
+            transform.Rotate(0,0,Vector2.Angle(new Vector2(planeDirection.x,planeDirection.y),new Vector2(0,-1)));
+            //Debug.Log(Vector2.Angle(new Vector2(planeDirection.x, planeDirection.y), new Vector2(0, -1)));
+        }
     }
 
     // Update is called once per frame
@@ -72,7 +81,7 @@ public class EnemyBehavior : Unit
         else
         {
             timer = 0.0f;
-            Fire(projectileDirection);
+            Fire(projectileDirection, numberOfBullets);
         }
 
         switch(behavior)
@@ -82,6 +91,9 @@ public class EnemyBehavior : Unit
                 break;
             case MOVEMENT_BEHAVIOR.SINE:
                 SineMovement();
+                break;
+            case MOVEMENT_BEHAVIOR.SUICIDE:
+                transform.position += planeDirection * planeSpeed * Time.deltaTime;
                 break;
         }
 
@@ -111,17 +123,35 @@ public class EnemyBehavior : Unit
         transform.position += (planeDirection + sin) * planeSpeed * Time.deltaTime;
     }
 
-    protected void Fire(Vector3 direction)
+    //protected void Fire(Vector3 direction)
+    //{
+    //    GameObject projectileCopy = Instantiate(projectile);
+    //    projectileCopy.transform.position = transform.Find("FiringPoint").position;
+    //    projectileCopy.transform.SetParent(GameObject.FindGameObjectWithTag("ProjectileHolder").transform);
+    //    Projectile projScript = projectileCopy.GetComponent<Projectile>();
+    //    projScript.speed = projectileSpeed;
+    //    projScript.damage = damage;
+    //    projScript.direction = direction;
+    //    projectileCopy.transform.Rotate(transform.rotation.eulerAngles);
+    //    projectileCopy.SetActive(true);        
+    //}
+
+    protected void Fire(Vector3 direction,int numberOfBullets = 1)
     {
-        GameObject projectileCopy = Instantiate(projectile);
-        projectileCopy.transform.position = transform.Find("FiringPoint").position;
-        projectileCopy.transform.SetParent(GameObject.FindGameObjectWithTag("ProjectileHolder").transform);
-        Projectile projScript = projectileCopy.GetComponent<Projectile>();
-        projScript.speed = projectileSpeed;
-        projScript.damage = damage;
-        projScript.direction = direction;
-        projectileCopy.transform.Rotate(transform.rotation.eulerAngles);
-        projectileCopy.SetActive(true);        
+        float angleDifference = 90.0f / numberOfBullets;
+        for (int i = 0; i < numberOfBullets; i++)
+        {
+            GameObject projectileCopy = Instantiate(projectile, GameObject.FindGameObjectWithTag("ProjectileHolder").transform);
+            projectileCopy.transform.position = transform.Find("FiringPoint").position;
+            Projectile projScript = projectileCopy.GetComponent<Projectile>();
+            projScript.speed = projectileSpeed;
+            projScript.damage = damage;
+            projScript.direction = direction;
+            projectileCopy.transform.Rotate(transform.rotation.eulerAngles);
+            projectileCopy.transform.Rotate(0, 0, -angleDifference * (numberOfBullets - 1) / 2 + angleDifference * i);
+            projScript.direction = Quaternion.Euler(0, 0, -angleDifference * (numberOfBullets - 1) / 2 + angleDifference * i) * projScript.direction;
+            projectileCopy.SetActive(true);
+        }
     }
 
     protected void OnCollisionEnter2D(Collision2D other) {

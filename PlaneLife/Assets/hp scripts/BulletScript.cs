@@ -28,7 +28,7 @@ public class BulletScript : MonoBehaviour
         if (other.tag != "Player" 
             && other.tag != "Bullet"
             && other.tag!= "Powerup") {
-            Debug.Log(other.name);
+            //Debug.Log(other.name);
             Unit unit = other.transform.GetComponent<Unit>();
             if (unit != null /*&& other.transform.GetComponent<EnemyBehavior>() != null*/)
             {

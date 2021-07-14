@@ -121,27 +121,9 @@ public class BossBehavior : EnemyBehavior
         else
         {
             timer = 0.0f;
-            Fire(projectileDirection);
+            Fire(projectileDirection, bulletSpread);
         }
 
-    }
-
-    protected new void Fire(Vector3 direction)
-    {
-        float angleDifference = 90.0f / bulletSpread;
-        for (int i = 0;i < bulletSpread;i++)
-        {
-            GameObject projectileCopy = Instantiate(projectile, GameObject.FindGameObjectWithTag("ProjectileHolder").transform);
-            projectileCopy.transform.position = transform.Find("FiringPoint").position;
-            Projectile projScript = projectileCopy.GetComponent<Projectile>();
-            projScript.speed = projectileSpeed;
-            projScript.damage = damage;
-            projScript.direction = direction;
-            projectileCopy.transform.Rotate(transform.rotation.eulerAngles);
-            projectileCopy.transform.Rotate(0, 0, -angleDifference * (bulletSpread - 1)/2 + angleDifference * i);
-            projScript.direction = Quaternion.Euler(0, 0, -angleDifference * (bulletSpread - 1) / 2 + angleDifference * i) * projScript.direction;
-            projectileCopy.SetActive(true);
-        }
     }
 
 }
