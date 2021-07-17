@@ -65,7 +65,7 @@ public class EnemyBehavior : Unit
     {
         if (health <= 0)
         {   
-            // SoundManagerScript.PlaySound ("enemyDeath");
+            SFXEnemyDeathScript.PlaySound();
             float drop = Random.Range(1,100); 
             if (drop <= dropChance ) {
                 Instantiate(powerUp, transform.position, new Quaternion(0,0,0,0),GameObject.FindGameObjectWithTag("ProjectileHolder").transform);

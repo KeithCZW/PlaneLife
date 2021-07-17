@@ -7,32 +7,38 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MonoBehaviour
 {
-    public SpriteRenderer spriteRenderer;
-    public List<Sprite> skins = new List<Sprite>();
-    private int selectedSkin = 0;   
-    public GameObject playerSkin;
+    public List<GameObject> skinList;
+    private int currentIndex;
+    private void Awake() {
+        currentIndex = PlayerPrefs.GetInt("SelectedSkin",0);
+        foreach(GameObject skin in skinList) {
+            skin.SetActive(false);
+        }
+        skinList[currentIndex].SetActive(true);
+    }
 
     public void nextSkin() {
-        if (selectedSkin < skins.Count - 1) {
-            selectedSkin++;
-        } else {
-            selectedSkin = 0;
+        skinList[currentIndex].SetActive(false);    
+        currentIndex++;
+        if(currentIndex >= skinList.Count) {
+            currentIndex = 0;
         }
-        spriteRenderer.sprite = skins[selectedSkin];
+        skinList[currentIndex].SetActive(true);
     }
 
     public void previousSkin() {
-        if (selectedSkin > 0) {
-            selectedSkin--;
-        } else {
-            selectedSkin = skins.Count-1;
+        skinList[currentIndex].SetActive(false);
+        currentIndex--;
+        if(currentIndex < 0) {
+            currentIndex = skinList.Count - 1;
         }
-        spriteRenderer.sprite = skins[selectedSkin];
+        skinList[currentIndex].SetActive(true);
     }
 
-    public void startGame()
+     public void startGame()
     {
-        PrefabUtility.SaveAsPrefabAsset(playerSkin, "Assets/Prefabs/currentSkin.prefab");
+        Debug.Log(currentIndex);
+        PlayerPrefs.SetInt("SelectedSkin", currentIndex);
         SceneManager.LoadScene("TestScene", LoadSceneMode.Single);
     }
 

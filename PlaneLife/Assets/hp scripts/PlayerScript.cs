@@ -26,9 +26,16 @@ public class PlayerScript : MonoBehaviour
   public float currPowerupType = 1f;
   public Sprite boosted;
 
-    public bool immortal = false;
-    private float immortalTimer = 0.0f;
-    private float alphaBlinker = 0.0f;
+  public bool immortal = false;
+  private float immortalTimer = 0.0f;
+  private float alphaBlinker = 0.0f;
+
+  public List<GameObject> SkinList;
+
+  void Awake() {
+    GetComponent<SpriteRenderer>().sprite = SkinList[PlayerPrefs.GetInt("SelectedSkin")].GetComponent<Image>().sprite;
+  }
+
   void Start()
   {
     rb = GetComponent<Rigidbody2D>();
@@ -92,16 +99,15 @@ public class PlayerScript : MonoBehaviour
   public void Shoot()
   {
     if (bulletInterval == 0.2f) {
-      SoundManagerScript.PlaySound("bullet");
+      SFXBulletScript.PlaySound();
     } else if (bulletInterval == 0.1f) {
-      SoundManagerScript.PlaySound ("bulletBoosted");
+      SFXBulletBoostedScript.PlaySound();
     } else {}
 
     if (currPowerupType == 1f)
     {
-            GameObject b1 = Instantiate(bullet, playerFirePoint.position, playerFirePoint.rotation);
-        setBulletSprite(b1);
-
+      GameObject b1 = Instantiate(bullet, playerFirePoint.position, playerFirePoint.rotation);
+      setBulletSprite(b1);
     }
     else if (currPowerupType == 2f)
     {
@@ -154,7 +160,7 @@ public class PlayerScript : MonoBehaviour
 
     public void TurnImmortal()
     {
-        SoundManagerScript.PlaySound("enemyHit");
+        SFXEnemyHitScript.PlaySound();
         immortal = true;
         immortalTimer = 1.0f;
     }
