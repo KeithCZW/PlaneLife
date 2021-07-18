@@ -10,10 +10,14 @@ public class BossBehavior : EnemyBehavior
     int currentPhase = 0;
     public GameObject leftBoundary;
     public GameObject rightBoundary;
+    public GameObject EnemySpawns;
 
     bool movingLeft = true;
 
     int bulletSpread = 1;
+
+    float enemySpawnTimer = 3.0f;
+    int enemyCount = 0;
 
     void Start()
     {
@@ -123,6 +127,20 @@ public class BossBehavior : EnemyBehavior
             timer = 0.0f;
             Fire(projectileDirection, bulletSpread);
         }
+
+        if (enemySpawnTimer <= 0.0f)
+        {
+            Transform enemy = Instantiate(EnemySpawns.transform.GetChild(enemyCount));
+            enemy.position = EnemySpawns.transform.GetChild(enemyCount).position;
+            enemy.gameObject.SetActive(true);
+            enemySpawnTimer = 3.0f;
+            enemyCount++;
+            if (enemyCount > 2)
+            {
+                enemyCount = 0;
+            }
+        }
+        enemySpawnTimer -= Time.deltaTime;
 
     }
 

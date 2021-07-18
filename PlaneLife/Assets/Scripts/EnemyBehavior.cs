@@ -51,11 +51,16 @@ public class EnemyBehavior : Unit
     // Start is called before the first frame update
     void Start()
     {
+        Destroy(gameObject, 15.0f);
         if (behavior == MOVEMENT_BEHAVIOR.SUICIDE)
         {
             planeDirection = (GameObject.FindGameObjectWithTag("Player").transform.position - transform.position).normalized;
             projectileDirection = planeDirection;
-            transform.Rotate(0,0,Vector2.Angle(new Vector2(planeDirection.x,planeDirection.y),new Vector2(0,-1)));
+            Vector3 temp = Vector3.Cross(new Vector3(0, -1, 0), planeDirection);
+            if (temp.z > 0)
+                transform.Rotate(0,0,Vector2.Angle(new Vector2(planeDirection.x,planeDirection.y),new Vector2(0,-1)));
+            else
+                transform.Rotate(0, 0, -Vector2.Angle(new Vector2(planeDirection.x, planeDirection.y), new Vector2(0, -1)));
             //Debug.Log(Vector2.Angle(new Vector2(planeDirection.x, planeDirection.y), new Vector2(0, -1)));
         }
     }
