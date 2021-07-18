@@ -22,15 +22,18 @@ public class EnemyBehavior : Unit
     public GameObject projectile;
     public Vector3 projectileDirection = new Vector3(0, -1, 0);
     public float projectileSpeed = 20.0f;
+    public bool projectileTracking = false; // Projectile tracks player
 
     protected float timer = 0.0f;
-    protected float fTimer = 0.0f;
+    protected float fTimer = 0.0f; // used for sine movement
 
     public MOVEMENT_BEHAVIOR behavior = MOVEMENT_BEHAVIOR.LINEAR;
     public float curveRadius = 2.0f;
     public float curveSpeed = 5.0f;
 
     public int numberOfBullets = 1;
+
+    public bool despawnUnitTimer = true; // If true, unit despawns after 15s
 
     public int score = 1; // Amount to give when unit dies
     public enum CURVE_DIRECTION
@@ -51,7 +54,8 @@ public class EnemyBehavior : Unit
     // Start is called before the first frame update
     void Start()
     {
-        Destroy(gameObject, 15.0f);
+        if (despawnUnitTimer)
+            Destroy(gameObject, 15.0f);
         if (behavior == MOVEMENT_BEHAVIOR.SUICIDE)
         {
             planeDirection = (GameObject.FindGameObjectWithTag("Player").transform.position - transform.position).normalized;
@@ -151,8 +155,20 @@ public class EnemyBehavior : Unit
             Projectile projScript = projectileCopy.GetComponent<Projectile>();
             projScript.speed = projectileSpeed;
             projScript.damage = damage;
-            projScript.direction = direction;
+            if (!projectileTracking)
+                projScript.direction = direction;
+            else
+                projScript.direction = (GameObject.FindGameObjectWithTag("Player").transform.position - transform.position).normalized;
             projectileCopy.transform.Rotate(transform.rotation.eulerAngles);
+            if (projectileTracking)
+            {
+                Vector3 tempDirection = (GameObject.FindGameObjectWithTag("Player").transform.position - transform.position).normalized;
+                Vector3 temp = Vector3.Cross(new Vector3(0, -1, 0), tempDirection);
+                if (temp.z > 0)
+                    projectileCopy.transform.Rotate(0, 0, Vector2.Angle(new Vector2(tempDirection.x, tempDirection.y), new Vector2(0, -1)));
+                else
+                    projectileCopy.transform.Rotate(0, 0, -Vector2.Angle(new Vector2(tempDirection.x, tempDirection.y), new Vector2(0, -1)));
+            }
             projectileCopy.transform.Rotate(0, 0, -angleDifference * (numberOfBullets - 1) / 2 + angleDifference * i);
             projScript.direction = Quaternion.Euler(0, 0, -angleDifference * (numberOfBullets - 1) / 2 + angleDifference * i) * projScript.direction;
             projectileCopy.SetActive(true);
