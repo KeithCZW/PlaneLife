@@ -33,7 +33,7 @@ public class BulletScript : MonoBehaviour
             if (unit != null /*&& other.transform.GetComponent<EnemyBehavior>() != null*/)
             {
                 SFXEnemyHitScript.PlaySound();
-                unit.health -= 1;
+                unit.TakeDamage(1);
                 Destroy(gameObject);
             }
         }

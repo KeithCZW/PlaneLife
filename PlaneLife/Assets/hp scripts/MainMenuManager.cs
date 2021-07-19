@@ -35,11 +35,21 @@ public class MainMenuManager : MonoBehaviour
         skinList[currentIndex].SetActive(true);
     }
 
-     public void startGame()
+     public void startGame(int level)
     {
         Debug.Log(currentIndex);
         PlayerPrefs.SetInt("SelectedSkin", currentIndex);
-        SceneManager.LoadScene("TestScene", LoadSceneMode.Single);
+        if (level == 1)
+        {
+            SceneManager.LoadScene("TestScene", LoadSceneMode.Single);
+            PlayerPrefs.SetInt("prevLvl",1);
+        }           
+        else if (level == 2)
+        {
+            SceneManager.LoadScene("Level2", LoadSceneMode.Single);
+            PlayerPrefs.SetInt("prevLvl", 2);
+        }
+            
     }
 
     public void ResetScore()

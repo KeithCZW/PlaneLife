@@ -11,6 +11,8 @@ public class ScoreBoard : MonoBehaviour
     public Text scoreText;
     public bool destroy = false;
     public bool showHighscore = false;
+    public int highScoreLvl = 1;
+    public bool setPreviousLevel = false;
     void Start()
     {
         if (!destroy)
@@ -20,6 +22,9 @@ public class ScoreBoard : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+
+        if (setPreviousLevel)
+            highScoreLvl = PlayerPrefs.GetInt("prevLvl");
     }
 
     // Update is called once per frame
@@ -30,7 +35,10 @@ public class ScoreBoard : MonoBehaviour
 
         if (showHighscore)
         {
-            scoreText.text += "\nHighscore:" + PlayerPrefs.GetInt("lvl1");
+            if (highScoreLvl == 1)
+                scoreText.text = PlayerPrefs.GetInt("lvl1").ToString();
+            else if (highScoreLvl == 2)
+                scoreText.text = PlayerPrefs.GetInt("lvl2").ToString();
         }
     }
 

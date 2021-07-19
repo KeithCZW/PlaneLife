@@ -16,4 +16,9 @@ public class Unit : MonoBehaviour
     {
         
     }
+
+    public virtual void TakeDamage(int dmg)
+    {
+        health -= dmg;
+    }
 }

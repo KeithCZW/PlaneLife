@@ -18,11 +18,23 @@ public class ChangeScene : MonoBehaviour
 
     public void UpdateScore()
     {
-        int storedScore = PlayerPrefs.GetInt("lvl1");
+        int storedScore = 0;
+        if (PlayerPrefs.GetInt("prevLvl") == 1)
+        {
+            storedScore = PlayerPrefs.GetInt("lvl1");
+        }
+        else
+        {
+            storedScore = PlayerPrefs.GetInt("lvl2");
+        }
+            
         int currentScore = GameObject.FindGameObjectWithTag("Score").GetComponent<ScoreBoard>().score;
         if (currentScore > storedScore)
         {
-            PlayerPrefs.SetInt("lvl1", currentScore);
+            if (PlayerPrefs.GetInt("prevLvl") == 1)
+                PlayerPrefs.SetInt("lvl1", currentScore);
+            else
+                PlayerPrefs.SetInt("lvl2", currentScore);
         }
         
     }

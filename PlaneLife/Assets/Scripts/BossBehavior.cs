@@ -144,4 +144,11 @@ public class BossBehavior : EnemyBehavior
 
     }
 
+    public override void TakeDamage(int dmg)
+    {
+        if (currentPhase > 0)
+        {
+            health -= dmg;
+        }
+    }
 }
