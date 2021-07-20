@@ -4697,19 +4697,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ede96152e490b604783efacc74990c65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skinList:
-  - {fileID: 1054639974}
-  - {fileID: 52797092}
-  - {fileID: 490253900}
-  - {fileID: 679646366}
-  - {fileID: 1425051061}
-  - {fileID: 1754333641}
-  - {fileID: 1876610143}
-  - {fileID: 771830200}
-  - {fileID: 1474837869}
-  - {fileID: 572801171}
-  - {fileID: 1263841777}
-  - {fileID: 2145362496}
+  flexibleColorPicker: {fileID: 0}
+  mat: {fileID: 0}
 --- !u!224 &983211764
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6069,7 +6058,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.12, y: 0.75}
+    oldSize: {x: 0.99, y: 0.75}
     newSize: {x: 1.12, y: 0.75}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -10456,27 +10445,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Size.y
       value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 1248936311763702387, guid: 8abae42bbd0493b44a6b2d93cee7c475,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 04f24af6093a4d54d98a00203eecf8ba,
-        type: 3}
-    - target: {fileID: 1248936311763702387, guid: 8abae42bbd0493b44a6b2d93cee7c475,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1248936311763702387, guid: 8abae42bbd0493b44a6b2d93cee7c475,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1248936311763702387, guid: 8abae42bbd0493b44a6b2d93cee7c475,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1248936311763702387, guid: 8abae42bbd0493b44a6b2d93cee7c475,
         type: 3}
