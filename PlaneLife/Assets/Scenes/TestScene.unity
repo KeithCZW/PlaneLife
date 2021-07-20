@@ -8748,6 +8748,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1089358411}
+  - component: {fileID: 1089358412}
   m_Layer: 0
   m_Name: SFXManager
   m_TagString: Untagged
@@ -8774,6 +8775,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1089358412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1089358410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be22323415ec1f44fbef884d9bee81a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arrayOfSFX:
+  - {fileID: 497946364}
+  - {fileID: 160327434}
+  - {fileID: 1323731343}
+  - {fileID: 560046111}
+  - {fileID: 797234588}
+  BGM: {fileID: 2080702424}
 --- !u!4 &1100848146 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4757757357395350543, guid: 664796909a3f9364187d0dc5ac6de1ff,
