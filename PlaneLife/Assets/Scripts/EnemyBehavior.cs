@@ -51,6 +51,10 @@ public class EnemyBehavior : Unit
 
     public GameObject explosion;
 
+    private float dmgTimer = 0.0f;
+    private bool isBlinking = false;
+    private float blinkTimer = 0.0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -106,7 +110,28 @@ public class EnemyBehavior : Unit
                 break;
         }
 
-        
+        if (isBlinking)
+        {
+            blinkTimer += Time.deltaTime;
+            if (blinkTimer > 0.05) // Time to blink transparency
+            {
+                blinkTimer = 0.0f;
+                Color temp = transform.GetComponent<SpriteRenderer>().color;
+                if (temp.Equals(new Color(1,1,1)))
+                    temp = new Color(1,0.5f,0.5f);
+                else
+                    temp = new Color(1, 1, 1);
+                transform.GetComponent<SpriteRenderer>().color = temp;
+            }
+            dmgTimer -= Time.deltaTime;
+            if (dmgTimer <= 0.0f)
+            {
+                isBlinking = false;
+                Color temp = transform.GetComponent<SpriteRenderer>().color;
+                temp = new Color(1, 1, 1);
+                transform.GetComponent<SpriteRenderer>().color = temp;
+            }
+        }
     }
 
     protected void SineMovement()
@@ -175,7 +200,14 @@ public class EnemyBehavior : Unit
         }
     }
 
-    protected void OnCollisionEnter2D(Collision2D other) {
+    public override void TakeDamage(int dmg)
+    {
+        health -= dmg;
+        isBlinking = true;
+        dmgTimer = 0.3f;
+    }
+
+    protected virtual void OnCollisionEnter2D(Collision2D other) {
         Unit unit = other.transform.GetComponent<Unit>();
 
         if (unit != null && other.transform.GetComponent<EnemyBehavior>() == null && other.transform.GetComponent<BossBehavior>() == null)

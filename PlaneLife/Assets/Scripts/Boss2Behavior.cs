@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class BossBehavior : EnemyBehavior
+public class Boss2Behavior : EnemyBehavior
 {
     // Start is called before the first frame update
     public List<int> healthThresholds;
@@ -16,7 +16,7 @@ public class BossBehavior : EnemyBehavior
 
     int bulletSpread = 1;
 
-    float enemySpawnTimer = 3.0f;
+    float enemySpawnTimer = 5.0f;
     int enemyCount = 0;
 
     private float dmgTimer = 0.0f;
@@ -35,7 +35,7 @@ public class BossBehavior : EnemyBehavior
         {
             SceneManager.LoadScene("ScoreScene", LoadSceneMode.Single);
         }
-        
+
 
         if (healthThresholds.Count > 0)
         {
@@ -63,7 +63,7 @@ public class BossBehavior : EnemyBehavior
                 {
                     movingLeft = !movingLeft;
                 }
-            } 
+            }
             else
             {
                 planeDirection = new Vector3(1, 0, 0);
@@ -137,7 +137,7 @@ public class BossBehavior : EnemyBehavior
             Transform enemy = Instantiate(EnemySpawns.transform.GetChild(enemyCount));
             enemy.position = EnemySpawns.transform.GetChild(enemyCount).position;
             enemy.gameObject.SetActive(true);
-            enemySpawnTimer = 3.0f;
+            enemySpawnTimer = 5.0f;
             enemyCount++;
             if (enemyCount > 2)
             {
