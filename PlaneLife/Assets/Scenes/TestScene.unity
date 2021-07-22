@@ -908,7 +908,7 @@ PrefabInstance:
     - target: {fileID: 9158308875575887846, guid: 664796909a3f9364187d0dc5ac6de1ff,
         type: 3}
       propertyPath: projectileSpeed
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 9158308875575887846, guid: 664796909a3f9364187d0dc5ac6de1ff,
         type: 3}
@@ -1337,7 +1337,7 @@ PrefabInstance:
     - target: {fileID: 9158308875575887846, guid: 664796909a3f9364187d0dc5ac6de1ff,
         type: 3}
       propertyPath: projectileSpeed
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 9158308875575887846, guid: 664796909a3f9364187d0dc5ac6de1ff,
         type: 3}
@@ -1749,7 +1749,7 @@ PrefabInstance:
     - target: {fileID: 9158308875575887846, guid: 664796909a3f9364187d0dc5ac6de1ff,
         type: 3}
       propertyPath: projectileSpeed
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 9158308875575887846, guid: 664796909a3f9364187d0dc5ac6de1ff,
         type: 3}
@@ -1965,7 +1965,7 @@ PrefabInstance:
     - target: {fileID: 9158308875575887846, guid: 664796909a3f9364187d0dc5ac6de1ff,
         type: 3}
       propertyPath: projectileSpeed
-      value: 10
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 9158308875575887846, guid: 664796909a3f9364187d0dc5ac6de1ff,
         type: 3}
@@ -2635,7 +2635,7 @@ PrefabInstance:
     - target: {fileID: 9158308875575887846, guid: 664796909a3f9364187d0dc5ac6de1ff,
         type: 3}
       propertyPath: projectileSpeed
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 9158308875575887846, guid: 664796909a3f9364187d0dc5ac6de1ff,
         type: 3}
@@ -3253,7 +3253,7 @@ PrefabInstance:
     - target: {fileID: 9158308875575887846, guid: 664796909a3f9364187d0dc5ac6de1ff,
         type: 3}
       propertyPath: projectileSpeed
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 9158308875575887846, guid: 664796909a3f9364187d0dc5ac6de1ff,
         type: 3}
@@ -4037,7 +4037,7 @@ PrefabInstance:
     - target: {fileID: 9158308875575887846, guid: 664796909a3f9364187d0dc5ac6de1ff,
         type: 3}
       propertyPath: projectileSpeed
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 9158308875575887846, guid: 664796909a3f9364187d0dc5ac6de1ff,
         type: 3}
@@ -4482,7 +4482,7 @@ PrefabInstance:
     - target: {fileID: 9158308875575887846, guid: 664796909a3f9364187d0dc5ac6de1ff,
         type: 3}
       propertyPath: projectileSpeed
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 9158308875575887846, guid: 664796909a3f9364187d0dc5ac6de1ff,
         type: 3}
@@ -4745,7 +4745,7 @@ PrefabInstance:
     - target: {fileID: 9158308875575887846, guid: 664796909a3f9364187d0dc5ac6de1ff,
         type: 3}
       propertyPath: projectileSpeed
-      value: 10
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 9158308875575887846, guid: 664796909a3f9364187d0dc5ac6de1ff,
         type: 3}
@@ -4980,7 +4980,7 @@ PrefabInstance:
     - target: {fileID: 9158308875575887846, guid: 664796909a3f9364187d0dc5ac6de1ff,
         type: 3}
       propertyPath: projectileSpeed
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 9158308875575887846, guid: 664796909a3f9364187d0dc5ac6de1ff,
         type: 3}
@@ -5074,7 +5074,7 @@ PrefabInstance:
     - target: {fileID: 9158308875575887846, guid: 664796909a3f9364187d0dc5ac6de1ff,
         type: 3}
       propertyPath: projectileSpeed
-      value: 10
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 9158308875575887846, guid: 664796909a3f9364187d0dc5ac6de1ff,
         type: 3}
@@ -6226,7 +6226,7 @@ PrefabInstance:
     - target: {fileID: 9158308875575887846, guid: 664796909a3f9364187d0dc5ac6de1ff,
         type: 3}
       propertyPath: projectileSpeed
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 9158308875575887846, guid: 664796909a3f9364187d0dc5ac6de1ff,
         type: 3}
@@ -6733,6 +6733,8 @@ MonoBehaviour:
   scoreText: {fileID: 2010351273}
   destroy: 1
   showHighscore: 0
+  highScoreLvl: 1
+  setPreviousLevel: 0
 --- !u!4 &584094001
 Transform:
   m_ObjectHideFlags: 0
@@ -6853,7 +6855,7 @@ PrefabInstance:
     - target: {fileID: 9158308875575887846, guid: 664796909a3f9364187d0dc5ac6de1ff,
         type: 3}
       propertyPath: projectileSpeed
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 9158308875575887846, guid: 664796909a3f9364187d0dc5ac6de1ff,
         type: 3}
@@ -7523,7 +7525,7 @@ PrefabInstance:
     - target: {fileID: 9158308875575887846, guid: 664796909a3f9364187d0dc5ac6de1ff,
         type: 3}
       propertyPath: projectileSpeed
-      value: 10
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 9158308875575887846, guid: 664796909a3f9364187d0dc5ac6de1ff,
         type: 3}
@@ -7726,7 +7728,7 @@ PrefabInstance:
     - target: {fileID: 9158308875575887846, guid: 664796909a3f9364187d0dc5ac6de1ff,
         type: 3}
       propertyPath: projectileSpeed
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 9158308875575887846, guid: 664796909a3f9364187d0dc5ac6de1ff,
         type: 3}
@@ -8774,7 +8776,7 @@ PrefabInstance:
     - target: {fileID: 9158308875575887846, guid: 664796909a3f9364187d0dc5ac6de1ff,
         type: 3}
       propertyPath: projectileSpeed
-      value: 10
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 9158308875575887846, guid: 664796909a3f9364187d0dc5ac6de1ff,
         type: 3}
@@ -9078,7 +9080,7 @@ PrefabInstance:
     - target: {fileID: 9158308875575887846, guid: 664796909a3f9364187d0dc5ac6de1ff,
         type: 3}
       propertyPath: projectileSpeed
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 9158308875575887846, guid: 664796909a3f9364187d0dc5ac6de1ff,
         type: 3}
@@ -9173,7 +9175,7 @@ MonoBehaviour:
   - wave: {fileID: 1283280381}
     delay: 2
   - wave: {fileID: 1876816911}
-    delay: 3
+    delay: 5
   - wave: {fileID: 244534848}
     delay: 3
   - wave: {fileID: 1510740869}
@@ -10158,7 +10160,7 @@ PrefabInstance:
     - target: {fileID: 9158308875575887846, guid: 664796909a3f9364187d0dc5ac6de1ff,
         type: 3}
       propertyPath: projectileSpeed
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 9158308875575887846, guid: 664796909a3f9364187d0dc5ac6de1ff,
         type: 3}
@@ -10259,7 +10261,7 @@ PrefabInstance:
     - target: {fileID: 9158308875575887846, guid: 664796909a3f9364187d0dc5ac6de1ff,
         type: 3}
       propertyPath: projectileSpeed
-      value: 10
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 9158308875575887846, guid: 664796909a3f9364187d0dc5ac6de1ff,
         type: 3}
@@ -10934,7 +10936,7 @@ PrefabInstance:
     - target: {fileID: 9158308875575887846, guid: 664796909a3f9364187d0dc5ac6de1ff,
         type: 3}
       propertyPath: projectileSpeed
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 9158308875575887846, guid: 664796909a3f9364187d0dc5ac6de1ff,
         type: 3}
@@ -11398,7 +11400,7 @@ PrefabInstance:
     - target: {fileID: 9158308875575887846, guid: 664796909a3f9364187d0dc5ac6de1ff,
         type: 3}
       propertyPath: projectileSpeed
-      value: 10
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 9158308875575887846, guid: 664796909a3f9364187d0dc5ac6de1ff,
         type: 3}
@@ -12095,7 +12097,7 @@ PrefabInstance:
     - target: {fileID: 9158308875575887846, guid: 664796909a3f9364187d0dc5ac6de1ff,
         type: 3}
       propertyPath: projectileSpeed
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 9158308875575887846, guid: 664796909a3f9364187d0dc5ac6de1ff,
         type: 3}
@@ -13043,7 +13045,7 @@ PrefabInstance:
     - target: {fileID: 9158308875575887846, guid: 664796909a3f9364187d0dc5ac6de1ff,
         type: 3}
       propertyPath: projectileSpeed
-      value: 10
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 9158308875575887846, guid: 664796909a3f9364187d0dc5ac6de1ff,
         type: 3}
@@ -13522,7 +13524,7 @@ PrefabInstance:
     - target: {fileID: 9158308875575887846, guid: 664796909a3f9364187d0dc5ac6de1ff,
         type: 3}
       propertyPath: projectileSpeed
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 9158308875575887846, guid: 664796909a3f9364187d0dc5ac6de1ff,
         type: 3}
@@ -13636,7 +13638,7 @@ PrefabInstance:
     - target: {fileID: 9158308875575887846, guid: 664796909a3f9364187d0dc5ac6de1ff,
         type: 3}
       propertyPath: projectileSpeed
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 9158308875575887846, guid: 664796909a3f9364187d0dc5ac6de1ff,
         type: 3}
@@ -13678,6 +13680,8 @@ MonoBehaviour:
   scoreText: {fileID: 0}
   destroy: 0
   showHighscore: 0
+  highScoreLvl: 1
+  setPreviousLevel: 0
 --- !u!4 &1488601363
 Transform:
   m_ObjectHideFlags: 0
@@ -14442,7 +14446,7 @@ PrefabInstance:
     - target: {fileID: 9158308875575887846, guid: 664796909a3f9364187d0dc5ac6de1ff,
         type: 3}
       propertyPath: projectileSpeed
-      value: 10
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 9158308875575887846, guid: 664796909a3f9364187d0dc5ac6de1ff,
         type: 3}
@@ -15117,7 +15121,7 @@ PrefabInstance:
     - target: {fileID: 9158308875575887846, guid: 664796909a3f9364187d0dc5ac6de1ff,
         type: 3}
       propertyPath: projectileSpeed
-      value: 10
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 9158308875575887846, guid: 664796909a3f9364187d0dc5ac6de1ff,
         type: 3}
@@ -15920,7 +15924,7 @@ PrefabInstance:
     - target: {fileID: 9158308875575887846, guid: 664796909a3f9364187d0dc5ac6de1ff,
         type: 3}
       propertyPath: projectileSpeed
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 9158308875575887846, guid: 664796909a3f9364187d0dc5ac6de1ff,
         type: 3}
@@ -16066,7 +16070,7 @@ PrefabInstance:
     - target: {fileID: 9158308875575887846, guid: 664796909a3f9364187d0dc5ac6de1ff,
         type: 3}
       propertyPath: projectileSpeed
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 9158308875575887846, guid: 664796909a3f9364187d0dc5ac6de1ff,
         type: 3}
@@ -16269,7 +16273,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 3a8ee8af64b97c74c85b9ba611114a5c, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.167
+  m_Volume: 0.03
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -16651,7 +16655,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.037245974, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -16686,7 +16690,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxTransparency: 0.2
-  minTransparency: 0.8
+  minTransparency: 0.5
   transparencyChange: 0.75
   delayBeforeClose: 4
 --- !u!4 &1995746682 stripped
@@ -17175,7 +17179,7 @@ PrefabInstance:
     - target: {fileID: 9158308875575887846, guid: 664796909a3f9364187d0dc5ac6de1ff,
         type: 3}
       propertyPath: projectileSpeed
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 9158308875575887846, guid: 664796909a3f9364187d0dc5ac6de1ff,
         type: 3}
