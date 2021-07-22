@@ -4845,19 +4845,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ede96152e490b604783efacc74990c65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skinList:
-  - {fileID: 1054639974}
-  - {fileID: 52797092}
-  - {fileID: 490253900}
-  - {fileID: 679646366}
-  - {fileID: 1425051061}
-  - {fileID: 1754333641}
-  - {fileID: 1876610143}
-  - {fileID: 771830200}
-  - {fileID: 1474837869}
-  - {fileID: 572801171}
-  - {fileID: 1263841777}
-  - {fileID: 2145362496}
+  flexibleColorPicker: {fileID: 0}
+  mat: {fileID: 0}
+  mainMenuBGM: {fileID: 0}
+  mainMenuSFXarray: []
+  BGMslider: {fileID: 0}
+  SFXslider: {fileID: 0}
 --- !u!224 &983211764
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4882,7 +4875,7 @@ RectTransform:
   - {fileID: 1263841780}
   - {fileID: 2145362499}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5301,6 +5294,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1089358411}
+  - component: {fileID: 1089358412}
   m_Layer: 0
   m_Name: SFXManager
   m_TagString: Untagged
@@ -5327,6 +5321,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1089358412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1089358410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be22323415ec1f44fbef884d9bee81a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arrayOfSFX:
+  - {fileID: 497946364}
+  - {fileID: 160327434}
+  - {fileID: 1323731343}
+  - {fileID: 560046111}
+  - {fileID: 797234588}
+  BGM: {fileID: 2080702424}
 --- !u!1 &1120777045
 GameObject:
   m_ObjectHideFlags: 0
@@ -6332,7 +6345,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.12, y: 0.75}
+    oldSize: {x: 0.99, y: 0.75}
     newSize: {x: 1.12, y: 0.75}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -8160,7 +8173,7 @@ Transform:
   - {fileID: 118563430}
   - {fileID: 1008219733}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1658821302
 GameObject:
@@ -10227,7 +10240,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.345
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -10321,7 +10334,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2090180785
 GameObject:
@@ -10829,27 +10842,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Size.y
       value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 1248936311763702387, guid: 8abae42bbd0493b44a6b2d93cee7c475,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 04f24af6093a4d54d98a00203eecf8ba,
-        type: 3}
-    - target: {fileID: 1248936311763702387, guid: 8abae42bbd0493b44a6b2d93cee7c475,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1248936311763702387, guid: 8abae42bbd0493b44a6b2d93cee7c475,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1248936311763702387, guid: 8abae42bbd0493b44a6b2d93cee7c475,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1248936311763702387, guid: 8abae42bbd0493b44a6b2d93cee7c475,
         type: 3}

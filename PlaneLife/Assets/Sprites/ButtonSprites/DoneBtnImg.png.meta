@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 0bef31141b25fdc4d88f95cd07a60e94
+guid: 3111095e7756fdd43b668104a5e5747c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5672744369869274347
-    second: arrowWhite_0
+      213: 1977510123535004910
+    second: DoneBtnImg_0
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -94,13 +94,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: arrowWhite_0
+      name: DoneBtnImg_0
       rect:
         serializedVersion: 2
-        x: 547
-        y: 628
-        width: 986
-        height: 635
+        x: 426
+        y: 325
+        width: 244
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -108,8 +108,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 51348541d0d5641b0800000000000000
-      internalID: -5672744369869274347
+      spriteID: ee4fa05eaf6817b10800000000000000
+      internalID: 1977510123535004910
       vertices: []
       indices: 
       edges: []

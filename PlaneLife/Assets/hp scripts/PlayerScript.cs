@@ -30,10 +30,10 @@ public class PlayerScript : MonoBehaviour
   private float immortalTimer = 0.0f;
   private float alphaBlinker = 0.0f;
 
-  public List<GameObject> SkinList;
+  public Material playerMat;
 
   void Awake() {
-    GetComponent<SpriteRenderer>().sprite = SkinList[PlayerPrefs.GetInt("SelectedSkin")].GetComponent<Image>().sprite;
+    playerMat.color = new Color(PlayerPrefs.GetFloat("r"), PlayerPrefs.GetFloat("g"), PlayerPrefs.GetFloat("b"));
   }
 
   void Start()
