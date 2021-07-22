@@ -99,7 +99,7 @@ public class Boss2Behavior : EnemyBehavior
         {
             thirdPhaseMobs.SetActive(true);
             curveDirection = CURVE_DIRECTION.RIGHT;
-            fireRate = 1.0f;
+            fireRate = 0.54f;
             bulletSpread = 6;
             projectileSpeed = 5.0f;
             //if (movingLeft)
