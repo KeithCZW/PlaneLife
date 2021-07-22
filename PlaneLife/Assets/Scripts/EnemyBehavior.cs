@@ -51,9 +51,9 @@ public class EnemyBehavior : Unit
 
     public GameObject explosion;
 
-    private float dmgTimer = 0.0f;
-    private bool isBlinking = false;
-    private float blinkTimer = 0.0f;
+    protected float dmgTimer = 0.0f;
+    protected bool isBlinking = false;
+    protected float blinkTimer = 0.0f;
 
     // Start is called before the first frame update
     void Start()

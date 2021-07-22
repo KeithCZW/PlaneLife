@@ -8,6 +8,8 @@ public class PowerupScript : MonoBehaviour
     public float powerupSpeed;
     private Rigidbody2D rb;
 
+    private bool collided = false;
+
     void Start()
     {   powerupType = Random.Range(2,6); 
         powerupSpeed = powerupType * 1.5f;
@@ -24,11 +26,12 @@ public class PowerupScript : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D other) {
-        if (other.gameObject.tag == "Player") 
+        if (other.gameObject.tag == "Player" && collided == false) 
         { 
             SFXPowerUpScript.PlaySound();
             other.gameObject.GetComponent<PlayerScript>().prevPowerupType = other.gameObject.GetComponent<PlayerScript>().currPowerupType;
             other.gameObject.GetComponent<PlayerScript>().currPowerupType = this.powerupType;
+            collided = true;
             Destroy(gameObject);
         } else {
             Physics2D.IgnoreCollision(other.collider, GetComponent<Collider2D>());

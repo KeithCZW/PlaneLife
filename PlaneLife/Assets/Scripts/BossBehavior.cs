@@ -19,9 +19,6 @@ public class BossBehavior : EnemyBehavior
     float enemySpawnTimer = 3.0f;
     int enemyCount = 0;
 
-    private float dmgTimer = 0.0f;
-    private bool isBlinking = false;
-    private float blinkTimer = 0.0f;
 
     void Start()
     {

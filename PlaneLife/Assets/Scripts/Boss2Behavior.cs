@@ -11,6 +11,7 @@ public class Boss2Behavior : EnemyBehavior
     public GameObject leftBoundary;
     public GameObject rightBoundary;
     public GameObject EnemySpawns;
+    public GameObject thirdPhaseMobs;
 
     bool movingLeft = true;
 
@@ -18,10 +19,6 @@ public class Boss2Behavior : EnemyBehavior
 
     float enemySpawnTimer = 5.0f;
     int enemyCount = 0;
-
-    private float dmgTimer = 0.0f;
-    private bool isBlinking = false;
-    private float blinkTimer = 0.0f;
 
     void Start()
     {
@@ -56,69 +53,71 @@ public class Boss2Behavior : EnemyBehavior
         }
         else if (currentPhase == 1)
         {
-            if (movingLeft)
-            {
-                planeDirection = new Vector3(-1, 0, 0);
-                if (transform.position.x < leftBoundary.transform.position.x)
-                {
-                    movingLeft = !movingLeft;
-                }
-            }
-            else
-            {
-                planeDirection = new Vector3(1, 0, 0);
-                if (transform.position.x > rightBoundary.transform.position.x)
-                {
-                    movingLeft = !movingLeft;
-                }
-            }
-            transform.position += planeDirection * planeSpeed * Time.deltaTime;
+            //if (movingLeft)
+            //{
+            //    planeDirection = new Vector3(-1, 0, 0);
+            //    if (transform.position.x < leftBoundary.transform.position.x)
+            //    {
+            //        movingLeft = !movingLeft;
+            //    }
+            //}
+            //else
+            //{
+            //    planeDirection = new Vector3(1, 0, 0);
+            //    if (transform.position.x > rightBoundary.transform.position.x)
+            //    {
+            //        movingLeft = !movingLeft;
+            //    }
+            //}
+            //transform.position += planeDirection * planeSpeed * Time.deltaTime;
         }
         else if (currentPhase == 2)
         {
-            curveDirection = CURVE_DIRECTION.UP;
-            fireRate = 1.5f;
+            planeDirection = new Vector3(0, 0, 0);
+            curveDirection = CURVE_DIRECTION.LEFT;
+            fireRate = 0.5f;
             bulletSpread = 3;
-            if (movingLeft)
-            {
-                planeDirection = new Vector3(-1, 0, 0);
-                if (transform.position.x < leftBoundary.transform.position.x)
-                {
-                    movingLeft = !movingLeft;
-                }
-            }
-            else
-            {
-                planeDirection = new Vector3(1, 0, 0);
-                if (transform.position.x > rightBoundary.transform.position.x)
-                {
-                    movingLeft = !movingLeft;
-                }
-            }
+            //if (movingLeft)
+            //{
+            //    planeDirection = new Vector3(-1, 0, 0);
+            //    if (transform.position.x < leftBoundary.transform.position.x)
+            //    {
+            //        movingLeft = !movingLeft;
+            //    }
+            //}
+            //else
+            //{
+            //    planeDirection = new Vector3(1, 0, 0);
+            //    if (transform.position.x > rightBoundary.transform.position.x)
+            //    {
+            //        movingLeft = !movingLeft;
+            //    }
+            //}
             SineMovement();
         }
         else if (currentPhase == 3)
         {
-            curveDirection = CURVE_DIRECTION.LEFT;
+            thirdPhaseMobs.SetActive(true);
+            curveDirection = CURVE_DIRECTION.RIGHT;
             fireRate = 1.0f;
             bulletSpread = 6;
             projectileSpeed = 5.0f;
-            if (movingLeft)
-            {
-                planeDirection = new Vector3(-1, 0, 0);
-                if (transform.position.x < leftBoundary.transform.position.x)
-                {
-                    movingLeft = !movingLeft;
-                }
-            }
-            else
-            {
-                planeDirection = new Vector3(1, 0, 0);
-                if (transform.position.x > rightBoundary.transform.position.x)
-                {
-                    movingLeft = !movingLeft;
-                }
-            }
+            //if (movingLeft)
+            //{
+            //    planeDirection = new Vector3(-1, 0, 0);
+            //    if (transform.position.x < leftBoundary.transform.position.x)
+            //    {
+            //        movingLeft = !movingLeft;
+            //    }
+            //}
+            //else
+            //{
+            //    planeDirection = new Vector3(1, 0, 0);
+            //    if (transform.position.x > rightBoundary.transform.position.x)
+            //    {
+            //        movingLeft = !movingLeft;
+            //    }
+            //}
             SineMovement();
         }
 
