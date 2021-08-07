@@ -98,7 +98,7 @@ public class Boss2Behavior : EnemyBehavior
         else if (currentPhase == 3)
         {
             thirdPhaseMobs.SetActive(true);
-            curveDirection = CURVE_DIRECTION.RIGHT;
+            //curveDirection = CURVE_DIRECTION.RIGHT;
             fireRate = 0.54f;
             bulletSpread = 6;
             projectileSpeed = 5.0f;
