@@ -30,6 +30,7 @@ public class BossBehavior : EnemyBehavior
     {
         if (health <= 0)
         {
+            GameObject.FindGameObjectWithTag("Score").GetComponent<ScoreBoard>().win = true;
             SceneManager.LoadScene("ScoreScene", LoadSceneMode.Single);
         }
         

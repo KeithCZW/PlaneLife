@@ -68,6 +68,7 @@ public class PlayerScript : MonoBehaviour
 
     if (transform.GetComponent<Unit>().health <= 0)
     {
+        GameObject.FindGameObjectWithTag("Score").GetComponent<ScoreBoard>().win = false;
         SceneManager.LoadScene("ScoreScene", LoadSceneMode.Single);
     }
 

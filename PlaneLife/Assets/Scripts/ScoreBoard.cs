@@ -13,6 +13,7 @@ public class ScoreBoard : MonoBehaviour
     public bool showHighscore = false;
     public int highScoreLvl = 1;
     public bool setPreviousLevel = false;
+    public bool win = false;
     void Start()
     {
         if (!destroy)
