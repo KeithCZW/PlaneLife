@@ -417,6 +417,7 @@ MonoBehaviour:
   showHighscore: 0
   highScoreLvl: 1
   setPreviousLevel: 0
+  win: 0
 --- !u!4 &44827894
 Transform:
   m_ObjectHideFlags: 0
@@ -1428,7 +1429,7 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: 6f5ce2e8e31c79d4691e7123bcf5fcc7, type: 3}
     m_FontSize: 30
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 3
     m_MaxSize: 50
     m_Alignment: 0
@@ -1623,6 +1624,7 @@ MonoBehaviour:
   showHighscore: 1
   highScoreLvl: 1
   setPreviousLevel: 0
+  win: 0
 --- !u!1 &721718636
 GameObject:
   m_ObjectHideFlags: 0
@@ -4008,7 +4010,7 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: 6f5ce2e8e31c79d4691e7123bcf5fcc7, type: 3}
     m_FontSize: 30
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 3
     m_MaxSize: 50
     m_Alignment: 0
@@ -5892,6 +5894,7 @@ MonoBehaviour:
   showHighscore: 1
   highScoreLvl: 2
   setPreviousLevel: 0
+  win: 0
 --- !u!1 &1892445133
 GameObject:
   m_ObjectHideFlags: 0

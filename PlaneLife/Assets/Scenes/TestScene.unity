@@ -6887,6 +6887,7 @@ MonoBehaviour:
   showHighscore: 0
   highScoreLvl: 1
   setPreviousLevel: 0
+  win: 0
 --- !u!4 &584094001
 Transform:
   m_ObjectHideFlags: 0
@@ -14429,6 +14430,7 @@ MonoBehaviour:
   showHighscore: 0
   highScoreLvl: 1
   setPreviousLevel: 0
+  win: 0
 --- !u!4 &1488601363
 Transform:
   m_ObjectHideFlags: 0
@@ -15951,7 +15953,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boss: 1
-  healthText: {fileID: 0}
+  healthText: {fileID: 320168707}
   player: {fileID: 1510740871}
 --- !u!114 &1571715665
 MonoBehaviour:
